@@ -11,7 +11,7 @@ def home():
 
 @app.route("/download")
 def download():
-    return send_from_directory(RESUME_FOLDER,"Aishwarya Jalgi CV.pdf", as_attachment =True)
+    return send_from_directory(RESUME_FOLDER,"Aishwarya_Jalgi_CV.pdf", as_attachment =True)
 
 if __name__=="__main__":
     app.run(debug=True)
