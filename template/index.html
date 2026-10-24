@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<!-- Tells the browser this document uses HTML5. -->
+
+<html lang="en">
+<!-- The page's main HTML element. The language is English. -->
+
+<head>
+    <!-- Stores information about the page, not the main visible content. -->
+
+    <meta charset="UTF-8">
+    <!-- Supports standard characters and symbols. -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Makes the layout adapt to phone, tablet, and computer screens. -->
+
+    <title>My Resume</title>
+    <!-- Text shown in the browser tab. -->
+
+    <style>
+        /* CSS below controls the appearance of the webpage. */
+
+        body {
+            font-family: Arial, sans-serif;
+            /* Use a clean, readable font. */
+
+            background: #f1f5f9;
+            /* Set a light gray-blue background. */
+
+            text-align: center;
+            /* Center the text and inline elements. */
+
+            padding: 40px 15px;
+            /* Add space around the page content. */
+        }
+
+        .container {
+            /* Style the main white card. */
+
+            background: white;
+            /* Give the card a white background. */
+
+            max-width: 500px;
+            /* Prevent the card from becoming too wide. */
+
+            margin: auto;
+            /* Center the card horizontally. */
+
+            padding: 30px 20px;
+            /* Add space inside the card. */
+
+            border-radius: 15px;
+            /* Round the card's corners. */
+
+            box-shadow: 0 4px 15px #0001;
+            /* Add a subtle shadow. */
+        }
+
+        h1 {
+            color: #1e293b;
+            /* Set the heading color. */
+        }
+
+        p {
+            color: #64748b;
+            /* Make paragraph text gray-blue. */
+        }
+
+        .btn {
+            display: inline-block;
+            /* Let links behave like styled buttons. */
+
+            margin: 10px 5px;
+            /* Add space around each button. */
+
+            padding: 12px 20px;
+            /* Add space inside each button. */
+
+            border-radius: 8px;
+            /* Round the button corners. */
+
+            text-decoration: none;
+            /* Remove the default link underline. */
+
+            color: white;
+            /* Make button text white. */
+
+            background: #2563eb;
+            /* Make the View Resume button blue. */
+        }
+
+        .download {
+            background: #15803d;
+            /* Make the Download Resume button green. */
+        }
+
+        iframe {
+            width: 100%;
+            /* Use the full width of the card. */
+
+            height: 450px;
+            /* Give the PDF preview a height. */
+
+            border: 1px solid #ddd;
+            /* Add a subtle outline. */
+
+            border-radius: 8px;
+            /* Round the preview's corners. */
+
+            margin-top: 20px;
+            /* Leave space above the preview. */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Everything inside body is part of the webpage content. -->
+
+    <div class="container">
+        <!-- A container groups the resume content into one card. -->
+
+        <h1>Your Name</h1>
+        <!-- Replace this with your name. -->
+
+        <p>Python Developer | Web Developer</p>
+        <!-- Replace this with your role or career objective. -->
+
+        <a class="btn"
+           href="{{ url_for('static', filename='resume.pdf') }}"
+           target="_blank">
+            View Resume
+        </a>
+        <!--
+        The first link opens the PDF in a new browser tab.
+        url_for() generates the correct URL for a Flask static file.
+        filename specifies which file to open.
+        target="_blank" requests a new tab.
+        -->
+
+        <a class="btn download" href="{{ url_for('download_resume') }}">
+            Download Resume
+        </a>
+        <!--
+        The second link opens our Flask /download route.
+        That route sends the PDF as a downloadable attachment.
+        -->
+
+        <iframe
+            src="{{ url_for('static', filename='resume.pdf') }}"
+            title="Resume preview">
+        </iframe>
+        <!--
+        An iframe embeds the PDF inside the webpage.
+        This allows visitors to preview it without leaving the page.
+        -->
+
+    </div>
+</body>
+</html>
