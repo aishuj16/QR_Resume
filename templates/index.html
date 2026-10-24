@@ -130,14 +130,8 @@
            target="_blank">
             View Resume
         </a>
-        <!--
-        The first link opens the PDF in a new browser tab.
-        url_for() generates the correct URL for a Flask static file.
-        filename specifies which file to open.
-        target="_blank" requests a new tab.
-        -->
-
-        <a class="btn download" href="{{ url_for('download_resume') }}">
+        
+        <a class="btn download" href="{{ url_for('download') }}">
             Download Resume
         </a>
         <!--
@@ -146,7 +140,7 @@
         -->
 
         <iframe
-            src="{{ url_for('static', filename='resume.pdf') }}"
+            src="{{ url_for('static', filename='Aishwarya_Jalgi_CV.pdf') }}"
             title="Resume preview">
         </iframe>
         <!--
