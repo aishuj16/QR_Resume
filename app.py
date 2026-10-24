@@ -1,8 +1,8 @@
 
-from flask import flask , render_template, send_from_directory
+from flask import Flask , render_template, send_from_directory
 import os
 
-app = flask(__name__)
+app = Flask(__name__)
 
 RESUME_FOLDER = os.path.join(app.root_path,"static")
 @app.route("/")
@@ -15,4 +15,5 @@ def download():
 
 if __name__=="__main__":
     app.run(debug=True)
+   
 
